@@ -1,0 +1,24 @@
+.place-main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: start;
+}
+.place-container {
+  display: flex;
+  justify-content: space-between;
+}
+.place-img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.place-contents {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30%;
+}
+.line-height {
+  line-height: 200%;
+}
