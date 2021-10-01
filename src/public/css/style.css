@@ -1,3 +1,4 @@
+@import "../css/contents/where.css";
 @import "./root.css";
 @import "./index.css";
 @import "./nav.css";
@@ -21,4 +22,5 @@
 * {
   font-family: "SF_HambakSnow";
   font-size: var(--m);
+>>>>>>> c82e0a9d9e016a91e316694fd4a7b8dc9ca53d17
 }
