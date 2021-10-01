@@ -3,7 +3,6 @@
 @import "./index.css";
 @import "./nav.css";
 @import "./howtocome.css";
-@import "./testborder.css";
 @font-face {
   font-family: "Pretendard-Regular";
   src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
@@ -17,10 +16,4 @@
     format("woff");
   font-weight: normal;
   font-style: normal;
-}
-
-* {
-  font-family: "SF_HambakSnow";
-  font-size: var(--m);
->>>>>>> c82e0a9d9e016a91e316694fd4a7b8dc9ca53d17
 }

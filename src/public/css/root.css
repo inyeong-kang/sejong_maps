@@ -1,7 +1,14 @@
+* {
+  font-family: "Pretendard-Regular";
+  /**font-family: "SF_HambakSnow";**/
+  font-size: var(--s);
+}
+
 html {
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: var(--coolgray);
 }
 
 .wrapper {
@@ -11,10 +18,13 @@ html {
   justify-content: center;
   max-width: 900px;
   min-width: 700px;
+  margin-bottom: 150px;
 }
 
 /**** color ****/
 :root {
+  --crimsonred: #c30e2e;
+  --gray: #334d61;
   --coolgray: #eeede3;
   --ivory: #fffde5;
   --warmgray1: #c8bdad;
@@ -33,6 +43,25 @@ html {
   --m: 22px;
   --l: 26px;
   --xl: 30px;
+}
+
+.xxs {
+  font-size: var(--xxs);
+}
+.xs {
+  font-size: var(--xs);
+}
+.s {
+  font-size: var(--s);
+}
+.m {
+  font-size: var(--m);
+}
+.l {
+  font-size: var(--l);
+}
+.xl {
+  font-size: var(--xl);
 }
 
 .block {
