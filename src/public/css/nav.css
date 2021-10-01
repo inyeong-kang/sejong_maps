@@ -1,0 +1,10 @@
+.btn-box {
+  display: flex;
+  flex-direction: column;
+}
+.index-nav {
+  border-top: 2px solid var(--warmgray2);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
