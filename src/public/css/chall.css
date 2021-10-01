@@ -1,0 +1,67 @@
+.chall__body {
+  display: flex;
+  flex-direction: column;
+  width: 100vh;
+  height: 90vh;
+}
+.chall-center {
+  text-align: center;
+}
+
+.chall-title {
+  font-size: 160%;
+}
+
+.chall-title___box {
+  margin: 6% 0px;
+}
+.chall-content__box {
+  margin: 0px;
+}
+.chall-content {
+  display: inline-block;
+  font-size: 130%;
+  line-height: 250%;
+  padding: 10% 7%;
+  background-color: #fffde5;
+  border-radius: 40px;
+  border: 1.8px solid black;
+  box-shadow: darkgray 10px 10px 5px;
+  padding: 10% 7%;
+  margin: 0px;
+}
+.chall-contentch1 {
+  padding: 6% 12%;
+}
+.chall-btn {
+  padding: 3% 10%;
+  background-color: #c30e2e;
+  margin-top: 8%;
+  margin-bottom: 3%;
+  border-radius: 12px;
+}
+.chall-btn a {
+  text-decoration: none;
+}
+.chall-announce {
+  display: flex;
+  flex-direction: column;
+}
+.chall-announce-1 {
+  font-size: 120%;
+  padding-bottom: 1%;
+}
+.chall-announce-2 {
+  padding-bottom: 1%;
+  font-size: 100%;
+}
+.chall-announce-3 {
+  font-size: 100%;
+}
+.chall-btn__text {
+  font-size: 150%;
+  color: floralwhite;
+}
+.chall-btn1 {
+  margin-top: 6%;
+}
