@@ -1,0 +1,19 @@
+/**** color ****/
+:root {
+  --coolgray: #eeede3;
+  --ivory: #fffde5;
+  --warmgray1: #c8bdad;
+  --warmgray2: #716258;
+  --lightgray: #f3f3f3;
+  --yellow: #fad771;
+  --gold: #926d4d;
+  --silver: #e6e6e6;
+}
+.block {
+  display: block;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+}
