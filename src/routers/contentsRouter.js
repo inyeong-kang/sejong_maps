@@ -3,7 +3,7 @@ import express from "express";
 const contentsRouter = express.Router();
 
 contentsRouter.get('/where', (req, res) => {
-  res.send('where');
+  res.render('where');
 })
 contentsRouter.get('/findmap', (req, res) => {
   res.send('findmap');
