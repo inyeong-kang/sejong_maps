@@ -2,6 +2,7 @@ import express from "express";
 
 const contentsRouter = express.Router();
 
+
 contentsRouter.get('/where', (req, res) => {
   res.render('where');
 })
