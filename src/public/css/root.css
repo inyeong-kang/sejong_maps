@@ -1,3 +1,17 @@
+html {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 900px;
+}
+
 /**** color ****/
 :root {
   --coolgray: #eeede3;
@@ -9,6 +23,17 @@
   --gold: #926d4d;
   --silver: #e6e6e6;
 }
+
+/**** font-size ****/
+:root {
+  --xxs: 10px;
+  --xs: 14px;
+  --s: 18px;
+  --m: 22px;
+  --l: 26px;
+  --xl: 30px;
+}
+
 .block {
   display: block;
 }
