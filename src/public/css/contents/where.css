@@ -53,18 +53,6 @@ body {
   cursor: pointer;
 }
 
-.image-upload-wrap {
-  margin-top: 20px;
-  border: 4px dashed #1fb264;
-  position: relative;
-}
-
-.image-dropping,
-.image-upload-wrap:hover {
-  background-color: #1fb264;
-  border: 4px dashed #ffffff;
-}
-
 .image-title-wrap {
   padding: 0 15px 15px 15px;
   color: #222;
@@ -77,7 +65,7 @@ body {
 .drag-text h3 {
   font-weight: 100;
   text-transform: uppercase;
-  color: #15824b;
+  color: #fad771;
   padding: 60px 0;
 }
 
@@ -113,4 +101,75 @@ body {
 .remove-image:active {
   border: 0;
   transition: all 0.2s ease;
+}
+
+/* 여기서부터 찐 css */
+
+main {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+main header {
+  padding-bottom: 30px;
+  display: flex;
+  justify-content: center;
+}
+main header span {
+  font-size: 30px;
+}
+main section span {
+  font-size: 20px;
+}
+.image-upload-wrap {
+  margin-top: 20px;
+  border: 3px solid #334d61;
+  border-radius: 5px;
+  position: relative;
+}
+
+.image-dropping,
+.image-upload-wrap:hover {
+  background-color: #334d61;
+  border: 4px dashed #ffffff;
+}
+
+#main-cont {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.start-btn {
+  background-color: #7e929f;
+  padding: 10px 20px;
+  border-radius: 15px;
+}
+
+.file-upload {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+}
+
+.predict-btn {
+  padding: 5px 0px;
+  width: 30%;
+  margin: 0 auto;
+  background-color: #334d61;
+  color: #f3f3f3f3;
+  border-radius: 10px;
+}
+
+.result {
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hide {
+  display: none;
 }
