@@ -8,23 +8,23 @@
     <link rel="stylesheet" href="/css/style.css" type="text/css" />
   </head>
   <body class="teachable__body">
-    <div>Teachable Machine Image Model</div>
-    <button type="button" onclick="init()">Start</button>
-    <button type="button" onclick="predict()">예측</button>
+
+    <main>
+      <header><span>여긴 어디?</span></header>
+      <section><span>인공지능을 활용한 건물 찾기</span></section>
+    </main>
+    <section id="main-cont">
+      <button type="button" class="start-btn" onclick="init()">사진을 넣기 전 전원을 켜주세요!</button>
+    </section>
+    
+    
     <script
       class="jsbin"
       src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"
     ></script>
 
-    <div class="file-upload">
-      <button
-        class="file-upload-btn"
-        type="button"
-        onclick="$('.file-upload-input').trigger( 'click' )"
-      >
-        Add Image
-      </button>
-
+    <div class="file-upload hide">
+      <button type="button" class="predict-btn" onclick="predict()">예측 시작</button>
       <div class="image-upload-wrap">
         <input
           class="file-upload-input"
@@ -33,7 +33,7 @@
           accept="image/*"
         />
         <div class="drag-text">
-          <h3>Drag and drop a file or select add Image</h3>
+          <h3>사진을 여기에 끌어 옮기거나, 클릭해서 사진을 선택하세요!</h3>
         </div>
       </div>
       <div class="file-upload-content">
@@ -50,8 +50,16 @@
         </div>
       </div>
     </div>
-    <div id="webcam-container"></div>
+
+    <!-- 출력이 여기서 됌 -->
     <div id="label-container"></div>
+    <div class="result">
+      <div class="tellRes"></div>
+      <div class="maxResult"></div>
+    </div>
+    
+    
+    
     <script
       src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
       integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
@@ -131,14 +139,40 @@
         var image = document.getElementById("building-image");
 
         const prediction = await model.predict(image, false);
+        let maxRes = 0.00;
+        const maxResult = document.querySelector(".maxResult");
+        const tellRes = document.querySelector(".tellRes");
+        let maxBuilding;
+        
         for (let i = 0; i < maxPredictions; i++) {
+          
+          const result = prediction[i].probability.toFixed(2);
+          const resBuilding = prediction[i].className;
           const classPrediction =
             prediction[i].className +
             ": " +
             prediction[i].probability.toFixed(2);
-          labelContainer.childNodes[i].innerHTML = classPrediction;
+            
+          // labelContainer.childNodes[i].innerHTML = classPrediction;
+
+          if (result > maxRes){
+            maxRes = result;
+            maxBuilding = resBuilding;
+          }
+          
         }
+        tellRes.innerHTML = "이 건물은 바로...!";
+        maxResult.innerHTML = maxBuilding;
+
       }
+    </script>
+    <!-- 숨기고 나오게 하기 -->
+    <script>
+      const startBtn = document.querySelector(".start-btn");
+      const hide = document.querySelector(".hide");
+      const removeLabel = document.querySelector(".remove-label");
+
+      startBtn.addEventListener("click", () => hide.classList.remove("hide"));
     </script>
   </body>
 </html>
