@@ -3,6 +3,9 @@
 @import "./index.css";
 @import "./nav.css";
 @import "./howtocome.css";
+
+@import "./tips.css";
+
 @import "./chall.css";
 
 @font-face {
