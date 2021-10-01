@@ -10,6 +10,7 @@ const globalRouter = express.Router();
 
 app.set('view engine', 'ejs');
 app.set('views', process.cwd() + "/src/views");
+app.use(express.static(__dirname + '/public'));
 
 app.use("/", globalRouter);
 app.use(logger);
