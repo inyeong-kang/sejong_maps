@@ -9,7 +9,20 @@ contentsRouter.get('/findmap', (req, res) => {
   res.send('findmap');
 })
 contentsRouter.get('/chall', (req, res) => {
-  res.send('chall');
+  res.render('chall/sjchall');
+})
+
+contentsRouter.get("/one", (req, res) => {
+  res.render('chall/one');
+})
+contentsRouter.get("/two", (req, res) => {
+  res.render('chall/two');
+})
+contentsRouter.get("/three", (req, res) => {
+  res.render('chall/three');
+})
+contentsRouter.get("/four", (req, res) => {
+  res.render('chall/four');
 })
 
 export default contentsRouter;
