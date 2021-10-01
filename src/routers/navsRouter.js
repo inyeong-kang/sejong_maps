@@ -2,6 +2,7 @@ import express from "express";
 
 const navsRouter = express.Router();
 
+
 // global로 바꿔야함
 navsRouter.get('/', (req, res) => {
   res.render('index');
@@ -15,6 +16,5 @@ navsRouter.get('/tips', (req, res) => {
 navsRouter.get('/comments', (req, res) => {
   res.send('comments');
 })
-
 
 export default navsRouter;
