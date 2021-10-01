@@ -8,23 +8,29 @@
     <link rel="stylesheet" href="/css/style.css" type="text/css" />
   </head>
   <body class="teachable__body">
-
     <main>
-      <header><span>여긴 어디?</span></header>
-      <section><span>인공지능을 활용한 건물 찾기</span></section>
+      <header class="where-title__box">
+        <span class="where-title">여긴 어디?</span>
+      </header>
+      <section>
+        <span class="where-content">" 인공지능을 활용한 건물 찾기 "</span>
+      </section>
     </main>
     <section id="main-cont">
-      <button type="button" class="start-btn" onclick="init()">사진을 넣기 전 전원을 켜주세요!</button>
+      <button type="button" class="start-btn" onclick="init()">
+        <span class="start-btn__text">사진을 넣기 전 전원을 켜주세요!</span>
+      </button>
     </section>
-    
-    
+
     <script
       class="jsbin"
       src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"
     ></script>
 
     <div class="file-upload hide">
-      <button type="button" class="predict-btn" onclick="predict()">예측 시작</button>
+      <button type="button" class="predict-btn" onclick="predict()">
+        예측 시작
+      </button>
       <div class="image-upload-wrap">
         <input
           class="file-upload-input"
@@ -57,9 +63,7 @@
       <div class="tellRes"></div>
       <div class="maxResult"></div>
     </div>
-    
-    
-    
+
     <script
       src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
       integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
@@ -139,31 +143,28 @@
         var image = document.getElementById("building-image");
 
         const prediction = await model.predict(image, false);
-        let maxRes = 0.00;
+        let maxRes = 0.0;
         const maxResult = document.querySelector(".maxResult");
         const tellRes = document.querySelector(".tellRes");
         let maxBuilding;
-        
+
         for (let i = 0; i < maxPredictions; i++) {
-          
           const result = prediction[i].probability.toFixed(2);
           const resBuilding = prediction[i].className;
           const classPrediction =
             prediction[i].className +
             ": " +
             prediction[i].probability.toFixed(2);
-            
+
           // labelContainer.childNodes[i].innerHTML = classPrediction;
 
-          if (result > maxRes){
+          if (result > maxRes) {
             maxRes = result;
             maxBuilding = resBuilding;
           }
-          
         }
         tellRes.innerHTML = "이 건물은 바로...!";
         maxResult.innerHTML = maxBuilding;
-
       }
     </script>
     <!-- 숨기고 나오게 하기 -->
@@ -174,5 +175,8 @@
 
       startBtn.addEventListener("click", () => hide.classList.remove("hide"));
     </script>
+    <div class="bg">
+      <img class="where-img" src="/img/door.jpg" />
+    </div>
   </body>
 </html>
