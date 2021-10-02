@@ -1,5 +1,6 @@
 # sejong_maps
 세종대학교 21학번 신입생과 20학번 미개봉 중고를 위한 세종대학교 캠퍼스 안내 웹사이트, sejong maps!
+https://www.figma.com/file/5DvO69N6MxCTseljEDjzIV/sejong_maps?node-id=0%3A1
 
 ## 기획 및 개발 목표
 학교가 낯선 병아리들을 위한 안내 서비스로서,
