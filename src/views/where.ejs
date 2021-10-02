@@ -62,6 +62,7 @@
     <div class="result">
       <div class="tellRes"></div>
       <div class="maxResult"></div>
+      <div class="explain"></div>
     </div>
 
     <script
@@ -148,7 +149,24 @@
         const maxResult = document.querySelector(".maxResult");
         const tellRes = document.querySelector(".tellRes");
         const removeImg = document.querySelector(".remove-image");
+        const explain = document.querySelector(".explain");
         let maxBuilding;
+
+        const buildings = {
+          "광개토관" : "영화예술학과, 경영경제대학, 호텔관광대학 친구들이 수업을 듣는 곳",
+          "군자관": "만화애니메이션학과 학생들과 패션디자인학과 학생들이 주로 수업을 듣는 곳",
+          "대양AI센터": "소프트웨어융합대학 학생들이 사용하는 곳",
+          "대양홀": "2500석 규모의 각종 문화 공연이나 세미나가 열리는 곳",
+          "동천관(학술정보원)": "도서관이 있는 곳. 지하에는 학생들이 사용할 수 있는 개인 열람실이 마련되어 있다",
+          "세종관": "동아리실도 있고, 영어 교양 강의동과 벤처기업 사무소, 예비군 연대로도 사용되고 있다.",
+          "애지헌": "국내 대학 건축에서 찾아보기 힘든 로마네스크 양식의 지하 1층, 지상 2층 규모의 학내 교회다. 채플 수업과 세종 수요 예배가 이루어지는 곳",
+          "영실관": "자연과학과 수업이 이루어지는 곳. 화학과나 물리학과 학생들이 실험을 하는 곳",
+          "용덕관": "체육학과, 무용과 수업이 이루어지는 곳. 실내 체육센터가 마련되어 있다",
+          "우정당":"다목적으로 사용되는 건물이며, 1층에는 편의점, 대형 푸드코드가 있다.",
+          "율곡관 & 충무관":"율곡관: 전자정보통신대학 학생들이 사용하는 곳. 전자 실습실이 있다. 충무관: 공과대학, 생명시스템학과 수업이 이루어지는 곳",
+          "진관홀":"지하에 식당이 마련되어 있다. 회화과, 디자인이노베이션학과의 수업이 이루어지는 곳",
+          "학생회관":"각종 동아리실이 있고, 지하 1층에 소금구이 덮밥으로 유명한 No.1 학식이 있다."
+        }
 
         for (let i = 0; i < maxPredictions; i++) {
           const result = prediction[i].probability.toFixed(2);
@@ -167,6 +185,7 @@
         }
         tellRes.innerHTML = "이 건물은 바로...!";
         maxResult.innerHTML = maxBuilding;
+        explain.innerHTML = buildings[maxBuilding];
 
         removeImg.addEventListener("click", () => {
           tellRes.innerHTML = "";
