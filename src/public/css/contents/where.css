@@ -219,3 +219,25 @@ body {
   overflow: hidden;
   object-fit: cover;
 }
+
+.result {
+  display: flex;
+  flex-direction: column;
+}
+
+.tellRes {
+  font-size: 20px;
+}
+
+.maxResult {
+  margin: 20px 0px;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.explain {
+  width: 80%;
+  font-size: 20px;
+  text-align: center;
+  font-weight: 500;
+}
