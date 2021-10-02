@@ -142,10 +142,12 @@
 
         var image = document.getElementById("building-image");
 
+        // 변수 설정
         const prediction = await model.predict(image, false);
         let maxRes = 0.0;
         const maxResult = document.querySelector(".maxResult");
         const tellRes = document.querySelector(".tellRes");
+        const removeImg = document.querySelector(".remove-image");
         let maxBuilding;
 
         for (let i = 0; i < maxPredictions; i++) {
@@ -165,6 +167,11 @@
         }
         tellRes.innerHTML = "이 건물은 바로...!";
         maxResult.innerHTML = maxBuilding;
+
+        removeImg.addEventListener("click", () => {
+          tellRes.innerHTML = "";
+          maxResult.innerHTML = "";
+        })
       }
     </script>
     <!-- 숨기고 나오게 하기 -->
@@ -172,8 +179,28 @@
       const startBtn = document.querySelector(".start-btn");
       const hide = document.querySelector(".hide");
       const removeLabel = document.querySelector(".remove-label");
+      const fileUpload = document.querySelector(".file-upload");
 
-      startBtn.addEventListener("click", () => hide.classList.remove("hide"));
+      const startBtnText = document.querySelector(".start-btn__text");
+      const afterClick = "전원이 켜졌습니다";
+      const beforeClick = "사진을 넣기 전 전원을 켜주세요!";
+      const sjBlue = "#334D61";
+      const sjRed = "#C30E2E";
+
+      startBtn.addEventListener("click", () => {
+        fileUpload.classList.toggle("hide");
+        let checkHide = fileUpload.classList.contains('hide');
+        if (checkHide) {
+          startBtnText.innerText = beforeClick;
+          startBtn.style.backgroundColor = sjRed;
+        } else{
+          startBtnText.innerText = afterClick;
+          startBtn.style.backgroundColor = sjBlue;
+        }
+      });
+
+
+
     </script>
     <div class="bg">
       <img class="where-img" src="/img/door.jpg" />

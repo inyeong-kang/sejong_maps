@@ -1,3 +1,11 @@
+* {
+  font-family: "SF_HambakSnow";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2106@1.1/SF_HambakSnow.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
 .chall__body {
   display: flex;
   flex-direction: column;
@@ -48,10 +56,12 @@
   flex-direction: column;
 }
 .chall-announce-1 {
+  font-size: 15px;
   font-size: 120%;
   padding-bottom: 1%;
 }
 .chall-announce-2 {
+  font-size: 15px;
   padding-bottom: 1%;
   font-size: 100%;
 }

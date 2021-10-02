@@ -193,9 +193,10 @@ main section span {
 .start-btn {
   margin-top: 7%;
   background-color: #c30e2e;
-  padding: 4% 20%;
+  padding: 3% 10%;
   border-radius: 50px;
   box-shadow: grey 10px 10px 10px;
+  width: 80%;
 }
 .start-btn__text {
   font-size: 60px;
