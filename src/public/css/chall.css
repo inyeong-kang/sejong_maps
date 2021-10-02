@@ -18,6 +18,7 @@
 
 .chall-title {
   font-size: 160%;
+  font-weight: 700;
 }
 
 .chall-title___box {
@@ -25,6 +26,7 @@
 }
 .chall-content__box {
   margin: 0px;
+  min-width: 700px;
 }
 .chall-content {
   display: inline-block;
@@ -35,18 +37,19 @@
   border-radius: 40px;
   border: 1.8px solid black;
   box-shadow: darkgray 10px 10px 5px;
-  padding: 10% 7%;
-  margin: 0px;
 }
 .chall-contentch1 {
   padding: 6% 12%;
 }
 .chall-btn {
-  padding: 3% 10%;
+  display: block;
+  padding: 2% 5%;
   background-color: #c30e2e;
-  margin-top: 8%;
-  margin-bottom: 3%;
+  margin-top: 10%;
+  margin-bottom: 10%;
   border-radius: 12px;
+  border: 1.8px solid black;
+  box-shadow: darkgray 10px 10px 5px;
 }
 .chall-btn a {
   text-decoration: none;
@@ -58,11 +61,16 @@
 .chall-announce-1 {
   font-size: 15px;
   font-size: 120%;
-  padding-bottom: 1%;
+  padding-bottom: 2%;
+  font-weight: 700;
 }
 .chall-announce-2 {
+<<<<<<< HEAD
   font-size: 15px;
   padding-bottom: 1%;
+=======
+  padding-bottom: 2%;
+>>>>>>> 23bbff93a8b962b1658dd05bc718dd983ca35ea1
   font-size: 100%;
 }
 .chall-announce-3 {
@@ -71,7 +79,13 @@
 .chall-btn__text {
   font-size: 150%;
   color: floralwhite;
+  font-weight: 600;
+  letter-spacing: 3px;
 }
 .chall-btn1 {
-  margin-top: 6%;
+  display: block;
+  padding: 6% 10%;
+  box-shadow: darkgray 10px 10px 5px;
+  margin-top: 30%;
+  margin-bottom: 10%;
 }
