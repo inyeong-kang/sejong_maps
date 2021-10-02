@@ -7,13 +7,6 @@ body {
 
 ****/
 
-.file-upload {
-  background-color: #ffffff;
-  width: 600px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
 .file-upload-btn {
   width: 100%;
   margin: 0;
@@ -48,13 +41,14 @@ body {
 
 .file-upload-input {
   position: absolute;
-  margin: 0;
+  margin-bottom: 20px;
   padding: 0;
   width: 100%;
   height: 100%;
   outline: none;
   opacity: 0;
   cursor: pointer;
+  color: var(--warmgray1);
 }
 
 .image-title-wrap {
@@ -69,7 +63,7 @@ body {
 .drag-text h3 {
   font-weight: 100;
   text-transform: uppercase;
-  color: #fad771;
+  color: #aaa8a1;
   padding: 60px 0;
 }
 
@@ -109,25 +103,14 @@ body {
 
 /* 여기서부터 찐 css */
 
-main {
-  margin-top: 30px;
+.where-main {
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-main header {
-  padding-bottom: 30px;
-  display: flex;
-  justify-content: center;
-}
-main header span {
-  font-size: 30px;
-}
-main section span {
-  font-size: 20px;
-}
 .image-upload-wrap {
-  margin-top: 20px;
+  margin: 20px 0;
   border: 3px solid #334d61;
   border-radius: 5px;
   position: relative;
@@ -140,7 +123,6 @@ main section span {
 }
 
 #main-cont {
-  margin-top: 30px;
   display: flex;
   justify-content: center;
 }
@@ -152,18 +134,23 @@ main section span {
 }
 
 .file-upload {
+  background-color: var(--lightgray);
   display: flex;
   flex-direction: column;
-  margin-top: 30px;
+  margin-top: 10px;
+  width: 80%;
+  margin: 0 auto;
+  padding: 0px 20px 20px 20px;
 }
 
 .predict-btn {
-  padding: 5px 0px;
+  padding: 10px 20px 10px 20px;
+  font-size: var(--m);
   width: 30%;
   margin: 0 auto;
-  background-color: #334d61;
-  color: #f3f3f3f3;
-  border-radius: 10px;
+  background-color: var(--gray);
+  color: var(--lightgray);
+  border-radius: 5px;
 }
 
 .result {
@@ -177,8 +164,9 @@ main section span {
 .hide {
   display: none;
 }
+
 .where-title {
-  font-size: 220%;
+  font-size: var(--xxl);
   font-weight: 700;
   margin-top: 5%;
   margin-bottom: 5%;
@@ -187,22 +175,30 @@ main section span {
 .where-title__box {
   width: 100vw;
 }
+
+.where-intro {
+  display: flex;
+  justify-content: center;
+}
+
 .where-content {
-  font-size: 220%;
+  text-align: center;
+  font-size: var(--s);
+  line-height: 200%;
+  margin-bottom: 30px;
 }
 .start-btn {
   margin-top: 7%;
-  background-color: #c30e2e;
-  padding: 3% 10%;
-  border-radius: 50px;
-  box-shadow: grey 10px 10px 10px;
-  width: 80%;
+  background-color: var(--crimsonred);
+  padding: 10px 20px 10px 20px;
+  margin: 10px;
+  border-radius: 5px;
+  box-shadow: 0 9px 12px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  width: 100%;
 }
 .start-btn__text {
-  font-size: 60px;
-  font-weight: bold;
-  color: floralwhite;
-  letter-spacing: 5px;
+  font-size: var(--m);
+  color: var(--lightgray);
 }
 .bg {
   width: 100%;

@@ -4,16 +4,56 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Where</title>
+    <script
+      src="https://kit.fontawesome.com/d5fbb687f5.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="/css/style.css" type="text/css" />
   </head>
-  <body class="teachable__body">
-    <main>
-      <header class="where-title__box">
-        <span class="where-title">여긴 어디?</span>
-      </header>
-      <section>
-        <span class="where-content">" 인공지능을 활용한 건물 찾기 "</span>
+
+  <body class="wrapper">
+    <h1>여긴 어디?</h1>
+    <hr class="upper-hr" />
+
+    <!-----------nav------------>
+    <nav class="index-nav">
+      <div class="btn-box">
+        <div class="icon-btn">
+          <a href="/" class="block"><i class="fas fa-home"></i></a>
+        </div>
+        <span>홈</span>
+      </div>
+      <div class="btn-box">
+        <div class="icon-btn">
+          <a href="/navs/howtocome" class="block"
+            ><i class="fas fa-walking"></i
+          ></a>
+        </div>
+        <span>세종 오는 길</span>
+      </div>
+      <div class="btn-box">
+        <div class="icon-btn">
+          <a href="/navs/tips" class="block"><i class="fas fa-pen"></i></a>
+        </div>
+        <span>세종 꿀팁</span>
+      </div>
+      <div class="btn-box">
+        <div class="icon-btn">
+          <a href="/navs/comments" class="block"
+            ><i class="fas fa-comments"></i
+          ></a>
+        </div>
+        <span>방명록</span>
+      </div>
+    </nav>
+
+    <main class="where-main">
+      <section class="where-intro">
+        <span class="where-content"
+          >정보를 알고 싶은 건물의 정면 사진을 업로드 해주세요.<br />이름을
+          몰라도 괜찮아요. 인공지능이 어떤 건물인지 알려줄 거에요!</span
+        >
       </section>
     </main>
     <section id="main-cont">
@@ -28,9 +68,6 @@
     ></script>
 
     <div class="file-upload hide">
-      <button type="button" class="predict-btn" onclick="predict()">
-        예측 시작
-      </button>
       <div class="image-upload-wrap">
         <input
           class="file-upload-input"
@@ -42,6 +79,9 @@
           <h3>사진을 여기에 끌어 옮기거나, 클릭해서 사진을 선택하세요!</h3>
         </div>
       </div>
+      <button type="button" class="predict-btn" onclick="predict()">
+        예측 시작
+      </button>
       <div class="file-upload-content">
         <img
           class="file-upload-image"
@@ -190,7 +230,7 @@
         removeImg.addEventListener("click", () => {
           tellRes.innerHTML = "";
           maxResult.innerHTML = "";
-        })
+        });
       }
     </script>
     <!-- 숨기고 나오게 하기 -->
@@ -208,18 +248,15 @@
 
       startBtn.addEventListener("click", () => {
         fileUpload.classList.toggle("hide");
-        let checkHide = fileUpload.classList.contains('hide');
+        let checkHide = fileUpload.classList.contains("hide");
         if (checkHide) {
           startBtnText.innerText = beforeClick;
           startBtn.style.backgroundColor = sjRed;
-        } else{
+        } else {
           startBtnText.innerText = afterClick;
           startBtn.style.backgroundColor = sjBlue;
         }
       });
-
-
-
     </script>
     <div class="bg">
       <img class="where-img" src="/img/door.jpg" />
