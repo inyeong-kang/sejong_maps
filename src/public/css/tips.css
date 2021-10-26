@@ -6,11 +6,24 @@
 }
 .place-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
+  overflow-x: scroll;
+  margin-bottom: 20px;
+}
+
+.place-container::-webkit-scrollbar {
+  background-color: transparent;
+  height: 5px;
+}
+.place-container::-webkit-scrollbar-thumb {
+  background-color: var(--warmgray1);
+
+  border-radius: 15px;
 }
 .place-img {
-  width: 100%;
+  width: 250px;
   border-radius: 5px;
+  margin: 0 10px 0 10px;
 }
 
 .place-contents {
@@ -18,6 +31,9 @@
   flex-direction: column;
   align-items: center;
   width: 30%;
+}
+.place-contents p {
+  font-weight: bold;
 }
 .line-height {
   line-height: 200%;
