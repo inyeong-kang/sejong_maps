@@ -221,3 +221,9 @@ img {
 .MapWalker.m15 .angleBack {
   background-position: -730px -2px;
 }
+
+.map_wrap {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
