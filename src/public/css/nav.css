@@ -1,3 +1,7 @@
+* {
+  font-family: "Pretendard-Regular";
+}
+
 .btn-box {
   display: flex;
   flex-direction: column;
@@ -18,5 +22,5 @@
   padding: 0px 20px;
   font-size: 20px;
 
-  z-index: 100;
+  z-index: 1;
 }
