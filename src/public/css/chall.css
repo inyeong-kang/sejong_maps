@@ -1,7 +1,10 @@
 .chall__body {
   display: flex;
   flex-direction: column;
-  height: 90vh;
+  height: 200vh;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 70px;
 }
 .chall-center {
   text-align: center;
@@ -13,30 +16,36 @@
 }
 
 .chall-title___box {
-  margin: 2% 0px;
+  margin-bottom: 60px;
 }
+
 .chall-content__box {
-  margin: 0px;
   min-width: 700px;
+  margin-bottom: 40px;
 }
+
 .chall-content {
   display: inline-block;
-  font-size: 130%;
-  line-height: 250%;
-  padding: 10% 7%;
   background-color: #fffde5;
   border-radius: 40px;
   border: 1.8px solid black;
   box-shadow: darkgray 10px 10px 5px;
+  letter-spacing: 2px;
+  line-height: 50px;
+  padding: 5%;
+  width: 625px;
+  font-size: 20px;
+  margin-bottom: 40px;
 }
+
 .chall-contentch1 {
-  padding: 6% 12%;
 }
+
 .chall-btn {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 7px 7px;
+  padding: 30px;
   background-color: #c30e2e;
   border-radius: 12px;
   border: 1.8px solid black;
@@ -49,43 +58,38 @@
 .chall-announce {
   display: flex;
   flex-direction: column;
+  margin-top: 40px;
 }
 .chall-announce-1 {
-  font-size: 15px;
-  font-size: 120%;
-  padding-bottom: 2%;
+  font-size: 30px;
+  padding-bottom: 10px;
   font-weight: 700;
 }
 .chall-announce-2 {
-  font-size: 15px;
-  padding-bottom: 1%;
-  font-size: 100%;
+  font-size: 20px;
+  padding-bottom: 10px;
 }
 .chall-announce-3 {
-  font-size: 100%;
+  font-size: 20px;
 }
 .chall-btn__text {
-  font-size: 150%;
   color: floralwhite;
   font-weight: 600;
   text-align: center;
   letter-spacing: 3px;
+  font-size: 25px;
 }
 .chall-btn1 {
   display: block;
-  padding: 6% 10%;
+  padding: 30px;
   box-shadow: darkgray 10px 10px 5px;
-  margin-top: 30%;
-  margin-bottom: 10%;
 }
 
 .chall_sub_btn {
   display: block;
   min-width: 800px;
-  margin: 0px;
 }
 .chall_sub_text {
-  font-size: 170%;
 }
 
 .chall_res_text1 {
@@ -104,5 +108,4 @@
 }
 .chall-btn__sec {
   margin: 0 auto;
-  padding: 2% 5%;
 }
