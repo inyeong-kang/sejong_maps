@@ -9,13 +9,15 @@
       src="https://kit.fontawesome.com/d5fbb687f5.js"
       crossorigin="anonymous"
     ></script>
+    
     <link rel="stylesheet" href="/css/style.css" type="text/css" />
   </head>
   <body class="wrapper">
     <h1>세종 오는 길</h1>
     <hr class="upper-hr">
     <section class="map">
-      <img class="howtocomeimg" src="/img/howtocome.jpg" alt="" />
+      <div id="map" class="howtocome_map" style="width:500px;height:300px;"></div>
+      
     </section>
     <section class="routes">
       <section class="route-subway route">
@@ -85,5 +87,17 @@
         <span>방명록 (개발 중)</span>
       </div>
     </nav>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=68262b74ac583d80a259e73587357e65"></script>
+    
+<script>
+  var container = document.getElementById('map');
+  var options = {
+    center: new kakao.maps.LatLng(37.55180968896947, 127.07364946575993),
+    level: 3
+  };
+
+  var map = new kakao.maps.Map(container, options);
+  
+</script>
   </body>
 </html>

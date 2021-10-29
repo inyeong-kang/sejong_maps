@@ -4,11 +4,45 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Challenge_4</title>
+    <script
+      src="https://kit.fontawesome.com/d5fbb687f5.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="/css/style.css" type="text/css" />
     <link rel="stylesheet" href="/css/font.css" type="text/css" />
   </head>
-  <body class="chall__body">
+  <body class="chall__body wrapper">
+    <nav class="index-nav">
+      <div class="btn-box">
+        <div class="icon-btn">
+          <a href="/" class="block"><i class="fas fa-home"></i></a>
+        </div>
+        <span>홈</span>
+      </div>
+      <div class="btn-box">
+        <div class="icon-btn">
+          <a href="/navs/howtocome" class="block"
+            ><i class="fas fa-walking"></i
+          ></a>
+        </div>
+        <span>세종 오는 길</span>
+      </div>
+      <div class="btn-box">
+        <div class="icon-btn">
+          <a href="/navs/tips" class="block"><i class="fas fa-pen"></i></a>
+        </div>
+        <span>세종 꿀팁</span>
+      </div>
+      <div class="btn-box">
+        <div class="icon-btn">
+          <a href="/navs/comments" class="block"
+            ><i class="fas fa-comments"></i
+          ></a>
+        </div>
+        <span>방명록 (개발 중)</span>
+      </div>
+    </nav>
     <header>
       <h1 class="chall-title chall-center chall-title___box">
         ch.3. 잇츠... 공부 타임 !!!
@@ -21,13 +55,10 @@
         아! 맞아 여기에 각종 문구류랑 세종대 굿즈도 판다구우~~<br />
         어디로 가야하아아아게에??<br />
       </p>
-      <div class="chall-btn">
-        <a href="four" class="chall-center"
-          ><span class="chall-btn__text">미션 4로 가기</span></a
-        >
-      </div>
+    </main>
+
       <section id="main-cont">
-        <button type="button" class="start-btn chall_sub_btn" onclick="init()">
+        <button type="button" class="start-btn chall-btn chall_sub_btn" onclick="init()">
           <span class="start-btn__text chall_sub_text"
             >사진을 넣으려면 클릭!!, 도즈어언??</span
           >
@@ -75,13 +106,13 @@
         <div class="tellRes chall_res_text1"></div>
         <div class="maxResult chall_res_text2"></div>
         <div class="isAnswer chall_res_text3 hide">
-          "병아뤼들 주위를 둘러봐 ‘애지’ 라고 적혀있는 ㄷㅇㅎ !!"
+          "병아뤼들 주위를 둘러봐 갈색건물에 우리은행이 있는 ㄱㅈㄱ !!"
         </div>
       </div>
       <section class="chall-btn__sec hide">
         <div class="chall-btn">
-          <a href="three" class="chall-center"
-            ><span class="chall-btn__text">미션 2로 가기</span></a
+          <a href="../index.ejs" class="chall-center"
+            ><span class="chall-btn__text">홈으로 가기</span></a
           >
         </div>
       </section>
@@ -101,22 +132,22 @@
         function readURL(input) {
           if (input.files && input.files[0]) {
             var reader = new FileReader();
-
+  
             reader.onload = function (e) {
               $(".image-upload-wrap").hide();
-
+  
               $(".file-upload-image").attr("src", e.target.result);
               $(".file-upload-content").show();
-
+  
               $(".image-title").html(input.files[0].name);
             };
-
+  
             reader.readAsDataURL(input.files[0]);
           } else {
             removeUpload();
           }
         }
-
+  
         function removeUpload() {
           $(".file-upload-input").replaceWith($(".file-upload-input").clone());
           $(".file-upload-content").hide();
@@ -132,37 +163,37 @@
       <script type="text/javascript">
         // More API functions here:
         // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
-
+  
         // the link to your model provided by Teachable Machine export panel
         const URL = "https://teachablemachine.withgoogle.com/models/4isctdtLI/";
-
+  
         let model, webcam, labelContainer, maxPredictions;
-
+  
         // Load the image model and setup the webcam
         async function init() {
           const modelURL = URL + "model.json";
           const metadataURL = URL + "metadata.json";
-
+  
           // load the model and metadata
           // Refer to tmImage.loadFromFiles() in the API to support files from a file picker
           // or files from your local hard drive
           // Note: the pose library adds "tmImage" object to your window (window.tmImage)
           model = await tmImage.load(modelURL, metadataURL);
           maxPredictions = model.getTotalClasses();
-
+  
           labelContainer = document.getElementById("label-container");
           for (let i = 0; i < maxPredictions; i++) {
             // and class labels
             labelContainer.appendChild(document.createElement("div"));
           }
         }
-
+  
         // run the webcam image through the image model
         async function predict() {
           // predict can take in an image, video or canvas html element
-
+  
           var image = document.getElementById("building-image");
-
+  
           // 변수 설정
           const prediction = await model.predict(image, false);
           let maxRes = 0.0;
@@ -170,7 +201,7 @@
           const tellRes = document.querySelector(".tellRes");
           const removeImg = document.querySelector(".remove-image");
           let maxBuilding;
-
+  
           for (let i = 0; i < maxPredictions; i++) {
             const result = prediction[i].probability.toFixed(2);
             const resBuilding = prediction[i].className;
@@ -178,7 +209,7 @@
               prediction[i].className +
               ": " +
               prediction[i].probability.toFixed(2);
-
+  
             // labelContainer.childNodes[i].innerHTML = classPrediction;
             // result => t.m 확률, maxRes => t.m 에서의 가장 큰 확률, maxBuilding => maxRes의 건물명
             if (result > maxRes) {
@@ -188,23 +219,23 @@
           }
           tellRes.innerHTML = "삐약이가 올린 건물은..?";
           maxResult.innerHTML = maxBuilding;
-
+  
           // isAnswer 값에 따라 출력하기
           const answer = document.querySelector(".isAnswer");
           const nextLevel = document.querySelector(".chall-btn__sec");
-
+  
           let isAnswer = 1;
-
+  
           if (maxBuilding !== "군자관") {
             isAnswer = 0;
           }
-
+  
           if (isAnswer === 1) {
             answer.classList.remove("hide");
-            answer.innerHTML = "워후!! 훌륭해 바로 다음 투어로 꼬우!";
+            answer.innerHTML = "워후!! 훌륭해 이제 모든 길을 마스터 했어~~ 쨩!";
             nextLevel.classList.remove("hide");
           } else answer.classList.remove("hide");
-
+  
           removeImg.addEventListener("click", () => {
             tellRes.innerHTML = "";
             maxResult.innerHTML = "";
@@ -222,7 +253,7 @@
         const beforeClick = "사진을 넣으려면 클릭!!, 도즈어언??";
         const sjBlue = "#334D61";
         const sjRed = "#C30E2E";
-
+  
         startBtn.addEventListener("click", () => {
           fileUpload.classList.toggle("hide");
           let checkHide = fileUpload.classList.contains("hide");

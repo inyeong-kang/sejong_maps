@@ -1,3 +1,7 @@
+* {
+  font-family: "Pretendard-Regular";
+}
+
 .btn-box {
   display: flex;
   flex-direction: column;
