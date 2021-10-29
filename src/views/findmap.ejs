@@ -11,49 +11,49 @@
     crossorigin="anonymous"
   ></script>
 </head>
-<body class="fm-body">
+<body class="wrapper">
     <h1>지도 보기</h1>
     <hr class="upper-hr" />
 
     <div class="map_wrap">
-        <div id="mapWrapper" style="width:100%;height:400px;">
-            <div id="map" style="width:100%;height:100%"></div> <!-- 지도를 표시할 div 입니다 -->
-        </div>
-        <div id="rvWrapper" style="width:100%;height:400px;">
-            <div id="roadview" style="width:100%;height:100%"></div> <!-- 로드뷰를 표시할 div 입니다 -->
-        </div>
+      <div id="mapWrapper" style="width:600px;height:400px;">
+        <div id="map" style="width:100%;height:100%"></div> <!-- 지도를 표시할 div 입니다 -->
+      </div>
+      <div id="rvWrapper" style="width:600px;height:400px;">
+        <div id="roadview" style="width:100%;height:100%"></div> <!-- 로드뷰를 표시할 div 입니다 -->
+      </div>
     </div>
 
-    <nav class="findmap-nav">
-        <div class="btn-box">
-            <div class="icon-btn">
-            <a href="/" class="block"><i class="fas fa-home"></i></a>
-          </div>
-          <span>홈</span>
+    <nav class="index-nav">
+      <div class="btn-box">
+        <div class="icon-btn">
+          <a href="/" class="block"><i class="fas fa-home"></i></a>
         </div>
-        <div class="btn-box">
-          <div class="icon-btn">
-            <a href="/navs/howtocome" class="block"
-              ><i class="fas fa-walking"></i
-            ></a>
-          </div>
-          <span>세종 오는 길</span>
+        <span>홈</span>
+      </div>
+      <div class="btn-box">
+        <div class="icon-btn">
+          <a href="/navs/howtocome" class="block"
+            ><i class="fas fa-walking"></i
+          ></a>
         </div>
-        <div class="btn-box">
-          <div class="icon-btn">
-            <a href="/navs/tips" class="block"><i class="fas fa-pen"></i></a>
-          </div>
-          <span>세종 꿀팁</span>
+        <span>세종 오는 길</span>
+      </div>
+      <div class="btn-box">
+        <div class="icon-btn">
+          <a href="/navs/tips" class="block"><i class="fas fa-pen"></i></a>
         </div>
-        <div class="btn-box">
-          <div class="icon-btn">
-            <a href="/navs/comments" class="block"
-              ><i class="fas fa-comments"></i
-            ></a>
-          </div>
-          <span>방명록 (개발 중)</span>
+        <span>세종 꿀팁</span>
+      </div>
+      <div class="btn-box">
+        <div class="icon-btn">
+          <a href="/navs/comments" class="block"
+            ><i class="fas fa-comments"></i
+          ></a>
         </div>
-      </nav>
+        <span>방명록 (개발 중)</span>
+      </div>
+    </nav>
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=68262b74ac583d80a259e73587357e65"></script>
 
     <script>
@@ -159,11 +159,11 @@
           latlng: new kakao.maps.LatLng(37.551838492939204, 127.07471166497393),
         },
         {
-          content: '<div class="box">10율곡관<img src="imgs/yul.jpg"></div>',
+          content: '<div class="box">10율곡관<img src="/imgs/yul.jpg"></div>',
           latlng: new kakao.maps.LatLng(37.55181248023683, 127.0740334849386),
         },
         {
-          content: '<div class="box">11진관홀<img src="imgs/jin.jpg"></div>',
+          content: '<div class="box">11진관홀<img src="/imgs/jin.jpg"></div>',
           latlng: new kakao.maps.LatLng(37.55092281551573, 127.07333691239755),
         },
         {
