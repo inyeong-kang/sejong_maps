@@ -27,4 +27,13 @@ contentsRouter.get("/four", (req, res) => {
   res.render("chall/four");
 });
 
+contentsRouter.get("/developer", (req, res) => {
+  res.render("developer");
+})
+
+contentsRouter.get("/sjsite", (req, res) =>{
+  res.render("sjsite");
+})
+
+
 export default contentsRouter;

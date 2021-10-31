@@ -225,5 +225,6 @@ img {
 .map_wrap {
   display: flex;
   flex-direction: column;
+  margin: 0 auto;
   height: 100%;
-}
+  max-width: 1000px;
