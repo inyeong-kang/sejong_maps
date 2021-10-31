@@ -1,0 +1,17 @@
+body {
+  display: flex;
+}
+
+.comment {
+  align-items: center;
+  justify-content: center;
+  margin-top: 8%;
+}
+
+.comment__content {
+  width: 600px;
+  height: 600px;
+  border-radius: 30px;
+  background-color: white;
+  box-shadow: 10px 10px 10px grey;
+}
