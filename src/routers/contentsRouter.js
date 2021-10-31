@@ -27,12 +27,8 @@ contentsRouter.get("/four", (req, res) => {
   res.render("chall/four");
 });
 
-contentsRouter.get("/developer", (req, res) => {
-  res.render("developer");
-})
-
-contentsRouter.get("/sjsite", (req, res) =>{
-  res.render("sjsite");
+contentsRouter.get("/developers", (req, res) => {
+  res.render("developers");
 })
 
 

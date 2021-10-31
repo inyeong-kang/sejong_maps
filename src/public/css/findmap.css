@@ -103,8 +103,9 @@ img {
 }
 .map_wrap {
   overflow: hidden;
-  height: 330px;
+  height: 100%;
 }
+
 /* 지도위에 로드뷰의 위치와 각도를 표시하기 위한 map walker 아이콘의 스타일 */
 .MapWalker {
   position: absolute;
@@ -222,9 +223,14 @@ img {
   background-position: -730px -2px;
 }
 
-.map_wrap {
+.map_roadview_intro {
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
-  height: 100%;
-  max-width: 1000px;
+  align-items: center;
+  margin: 10px 0px;
+}
+
+.map_name,
+.roadview_name {
+  margin: 20px 0px;
+}
