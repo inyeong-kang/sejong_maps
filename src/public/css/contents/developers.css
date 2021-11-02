@@ -1,0 +1,42 @@
+.dev-main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.dev-main section {
+  width: 300px;
+  height: 500px;
+  border: 1px solid black;
+  border-radius: 20px;
+  margin: 40px 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 20px;
+}
+
+.name {
+  font-weight: bold;
+  margin-bottom: 80px;
+}
+
+.profile {
+  margin-bottom: 120px;
+}
+
+.explain {
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+.cv a:first-child {
+  margin-right: 20px;
+}
+
+.cv a:last-child {
+  margin-left: 20px;
+}

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Where</title>
+    <script
+      src="https://kit.fontawesome.com/d5fbb687f5.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="/css/style.css" type="text/css" />
+  </head>
+
+  <body class="wrapper">
+    <h1>여긴 어디?</h1>
+    <hr class="upper-hr" />
+
+    <!-----------nav------------>
+    <nav class="index-nav">
+      <div class="btn-box">
+        <div class="icon-btn">
+          <a href="/" class="block"><i class="fas fa-home"></i></a>
+        </div>
+        <span>홈</span>
+      </div>
+      <div class="btn-box">
+        <div class="icon-btn">
+          <a href="/navs/howtocome" class="block"
+            ><i class="fas fa-walking"></i
+          ></a>
+        </div>
+        <span>세종 오는 길</span>
+      </div>
+      <div class="btn-box">
+        <div class="icon-btn">
+          <a href="/navs/tips" class="block"><i class="fas fa-pen"></i></a>
+        </div>
+        <span>세종 꿀팁</span>
+      </div>
+      <div class="btn-box">
+        <div class="icon-btn">
+          <a href="/navs/comments" class="block"
+            ><i class="fas fa-comments"></i
+          ></a>
+        </div>
+        <span>방명록</span>
+      </div>
+    </nav>
+
+    <main class="where-main">
+      <section class="where-intro">
+        <span class="where-content"
+          >정보를 알고 싶은 건물의 정면 사진을 업로드 해주세요.<br />이름을
+          몰라도 괜찮아요. 인공지능이 어떤 건물인지 알려줄 거에요!</span
+        >
+      </section>
+    </main>
+    <section id="main-cont">
+      <button type="button" class="start-btn" onclick="init()">
+        <span class="start-btn__text">사진을 넣기 전 전원을 켜주세요!</span>
+      </button>
+    </section>
+
+    <script
+      class="jsbin"
+      src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"
+    ></script>
+
+    <div class="file-upload hide">
+      <div class="image-upload-wrap">
+        <input
+          class="file-upload-input"
+          type="file"
+          onchange="readURL(this);"
+          accept="image/*"
+        />
+        <div class="drag-text">
+          <h3>사진을 여기에 끌어 옮기거나, 클릭해서 사진을 선택하세요!</h3>
+        </div>
+      </div>
+      
+      <div class="file-upload-content">
+        <img
+          class="file-upload-image"
+          id="building-image"
+          src="#"
+          alt="your image"
+        />
+        <div class="image-title-wrap">
+          <button type="button" onclick="removeUpload()" class="remove-image">
+            Remove <span class="image-title">Uploaded Image</span>
+          </button>
+        </div>  
+      </div>
+      <button type="button" class="predict-btn" onclick="predict()">
+        예측 시작
+      </button>
+    </div>
+
+    <!-- 출력이 여기서 됌 -->
+    <div id="label-container"></div>
+    <div class="result">
+      <div class="tellRes"></div>
+      <div class="maxResult"></div>
+      <div class="explain"></div>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
+    <script>
+      function readURL(input) {
+        if (input.files && input.files[0]) {
+          var reader = new FileReader();
+
+          reader.onload = function (e) {
+            $(".image-upload-wrap").hide();
+
+            $(".file-upload-image").attr("src", e.target.result);
+            $(".file-upload-content").show();
+
+            $(".image-title").html(input.files[0].name);
+          };
+
+          reader.readAsDataURL(input.files[0]);
+        } else {
+          removeUpload();
+        }
+      }
+
+      function removeUpload() {
+        $(".file-upload-input").replaceWith($(".file-upload-input").clone());
+        $(".file-upload-content").hide();
+        $(".image-upload-wrap").show();
+      }
+      $(".image-upload-wrap").bind("dragover", function () {
+        $(".image-upload-wrap").addClass("image-dropping");
+      });
+      $(".image-upload-wrap").bind("dragleave", function () {
+        $(".image-upload-wrap").removeClass("image-dropping");
+      });
+    </script>
+    <script type="text/javascript">
+      // More API functions here:
+      // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
+
+      // the link to your model provided by Teachable Machine export panel
+      const URL = "https://teachablemachine.withgoogle.com/models/4isctdtLI/";
+
+      let model, webcam, labelContainer, maxPredictions;
+
+      // Load the image model and setup the webcam
+      async function init() {
+        const modelURL = URL + "model.json";
+        const metadataURL = URL + "metadata.json";
+
+        // load the model and metadata
+        // Refer to tmImage.loadFromFiles() in the API to support files from a file picker
+        // or files from your local hard drive
+        // Note: the pose library adds "tmImage" object to your window (window.tmImage)
+        model = await tmImage.load(modelURL, metadataURL);
+        maxPredictions = model.getTotalClasses();
+
+        labelContainer = document.getElementById("label-container");
+        for (let i = 0; i < maxPredictions; i++) {
+          // and class labels
+          labelContainer.appendChild(document.createElement("div"));
+        }
+      }
+
+      // run the webcam image through the image model
+      async function predict() {
+        // predict can take in an image, video or canvas html element
+
+        var image = document.getElementById("building-image");
+
+        // 변수 설정
+        const prediction = await model.predict(image, false);
+        let maxRes = 0.0;
+        const maxResult = document.querySelector(".maxResult");
+        const tellRes = document.querySelector(".tellRes");
+        const removeImg = document.querySelector(".remove-image");
+        const explain = document.querySelector(".explain");
+        let maxBuilding;
+
+        const buildings = {
+          "광개토관" : "영화예술학과, 경영경제대학, 호텔관광대학 친구들이 수업을 듣는 곳",
+          "군자관": "만화애니메이션학과 학생들과 패션디자인학과 학생들이 주로 수업을 듣는 곳",
+          "대양AI센터": "소프트웨어융합대학 학생들이 사용하는 곳",
+          "대양홀": "2500석 규모의 각종 문화 공연이나 세미나가 열리는 곳",
+          "동천관(학술정보원)": "도서관이 있는 곳. 지하에는 학생들이 사용할 수 있는 개인 열람실이 마련되어 있다",
+          "세종관": "동아리실도 있고, 영어 교양 강의동과 벤처기업 사무소, 예비군 연대로도 사용되고 있다.",
+          "애지헌": "국내 대학 건축에서 찾아보기 힘든 로마네스크 양식의 지하 1층, 지상 2층 규모의 학내 교회다. 채플 수업과 세종 수요 예배가 이루어지는 곳",
+          "영실관": "자연과학과 수업이 이루어지는 곳. 화학과나 물리학과 학생들이 실험을 하는 곳",
+          "용덕관": "체육학과, 무용과 수업이 이루어지는 곳. 실내 체육센터가 마련되어 있다",
+          "우정당":"다목적으로 사용되는 건물이며, 1층에는 편의점, 대형 푸드코드가 있다.",
+          "율곡관 & 충무관":"율곡관: 전자정보통신대학 학생들이 사용하는 곳. 전자 실습실이 있다. 충무관: 공과대학, 생명시스템학과 수업이 이루어지는 곳",
+          "진관홀":"지하에 식당이 마련되어 있다. 회화과, 디자인이노베이션학과의 수업이 이루어지는 곳",
+          "학생회관":"각종 동아리실이 있고, 지하 1층에 소금구이 덮밥으로 유명한 No.1 학식이 있다."
+        }
+
+        for (let i = 0; i < maxPredictions; i++) {
+          const result = prediction[i].probability.toFixed(2);
+          const resBuilding = prediction[i].className;
+          const classPrediction =
+            prediction[i].className +
+            ": " +
+            prediction[i].probability.toFixed(2);
+
+          // labelContainer.childNodes[i].innerHTML = classPrediction;
+
+          if (result > maxRes) {
+            maxRes = result;
+            maxBuilding = resBuilding;
+          }
+        }
+        tellRes.innerHTML = "이 건물은 바로...!";
+        maxResult.innerHTML = maxBuilding;
+        explain.innerHTML = buildings[maxBuilding];
+
+        removeImg.addEventListener("click", () => {
+          tellRes.innerHTML = "";
+          maxResult.innerHTML = "";
+          explain.innerHTML = "";
+        });
+      }
+    </script>
+    <!-- 숨기고 나오게 하기 -->
+    <script>
+      const startBtn = document.querySelector(".start-btn");
+      const hide = document.querySelector(".hide");
+      const removeLabel = document.querySelector(".remove-label");
+      const fileUpload = document.querySelector(".file-upload");
+
+      const startBtnText = document.querySelector(".start-btn__text");
+      const afterClick = "전원이 켜졌습니다";
+      const beforeClick = "사진을 넣기 전 전원을 켜주세요!";
+      const sjBlue = "#334D61";
+      const sjRed = "#C30E2E";
+
+      startBtn.addEventListener("click", () => {
+        fileUpload.classList.toggle("hide");
+        let checkHide = fileUpload.classList.contains("hide");
+        if (checkHide) {
+          startBtnText.innerText = beforeClick;
+          startBtn.style.backgroundColor = sjRed;
+        } else {
+          startBtnText.innerText = afterClick;
+          startBtn.style.backgroundColor = sjBlue;
+        }
+      });
+    </script>
+    <div class="bg">
+      <img class="where-img" src="/img/door.jpg" />
+    </div>
+  </body>
+</html>

@@ -1,0 +1,306 @@
+#mapWrapper {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
+.wrap {
+  position: absolute;
+  left: 0;
+  bottom: 40px;
+  width: 288px;
+  height: 132px;
+  margin-left: -144px;
+  text-align: left;
+  overflow: hidden;
+  font-size: 12px;
+  font-family: "Malgun Gothic", dotum, "돋움", sans-serif;
+  line-height: 1.5;
+}
+/*
+.map_wrap a,
+.map_wrap a:hover,
+.map_wrap a:active {
+  color: #000;
+  text-decoration: none;
+}*/
+.wrap * {
+  padding: 0;
+  margin: 0;
+}
+.wrap .box {
+  width: 286px;
+  height: 120px;
+  border-radius: 5px;
+  border-bottom: 2px solid #ccc;
+  border-right: 1px solid #ccc;
+  background: rgb(248, 248, 248);
+}
+
+.map_wrap {
+  overflow: hidden;
+  height: 100%;
+}
+
+/* 지도위에 로드뷰의 위치와 각도를 표시하기 위한 map walker 아이콘의 스타일 */
+.MapWalker {
+  position: absolute;
+  margin: -26px 0 0 -51px;
+}
+.MapWalker .figure {
+  position: absolute;
+  width: 25px;
+  left: 38px;
+  top: -2px;
+  height: 39px;
+  background: url(https://t1.daumcdn.net/localimg/localimages/07/2018/pc/roadview_minimap_wk_2018.png) -298px -114px
+    no-repeat;
+}
+.MapWalker .angleBack {
+  width: 102px;
+  height: 52px;
+  background: url(https://t1.daumcdn.net/localimg/localimages/07/2018/pc/roadview_minimap_wk_2018.png) -834px -2px
+    no-repeat;
+}
+.MapWalker.m0 .figure {
+  background-position: -298px -114px;
+}
+.MapWalker.m1 .figure {
+  background-position: -335px -114px;
+}
+.MapWalker.m2 .figure {
+  background-position: -372px -114px;
+}
+.MapWalker.m3 .figure {
+  background-position: -409px -114px;
+}
+.MapWalker.m4 .figure {
+  background-position: -446px -114px;
+}
+.MapWalker.m5 .figure {
+  background-position: -483px -114px;
+}
+.MapWalker.m6 .figure {
+  background-position: -520px -114px;
+}
+.MapWalker.m7 .figure {
+  background-position: -557px -114px;
+}
+.MapWalker.m8 .figure {
+  background-position: -2px -114px;
+}
+.MapWalker.m9 .figure {
+  background-position: -39px -114px;
+}
+.MapWalker.m10 .figure {
+  background-position: -76px -114px;
+}
+.MapWalker.m11 .figure {
+  background-position: -113px -114px;
+}
+.MapWalker.m12 .figure {
+  background-position: -150px -114px;
+}
+.MapWalker.m13 .figure {
+  background-position: -187px -114px;
+}
+.MapWalker.m14 .figure {
+  background-position: -224px -114px;
+}
+.MapWalker.m15 .figure {
+  background-position: -261px -114px;
+}
+.MapWalker.m0 .angleBack {
+  background-position: -834px -2px;
+}
+.MapWalker.m1 .angleBack {
+  background-position: -938px -2px;
+}
+.MapWalker.m2 .angleBack {
+  background-position: -1042px -2px;
+}
+.MapWalker.m3 .angleBack {
+  background-position: -1146px -2px;
+}
+.MapWalker.m4 .angleBack {
+  background-position: -1250px -2px;
+}
+.MapWalker.m5 .angleBack {
+  background-position: -1354px -2px;
+}
+.MapWalker.m6 .angleBack {
+  background-position: -1458px -2px;
+}
+.MapWalker.m7 .angleBack {
+  background-position: -1562px -2px;
+}
+.MapWalker.m8 .angleBack {
+  background-position: -2px -2px;
+}
+.MapWalker.m9 .angleBack {
+  background-position: -106px -2px;
+}
+.MapWalker.m10 .angleBack {
+  background-position: -210px -2px;
+}
+.MapWalker.m11 .angleBack {
+  background-position: -314px -2px;
+}
+.MapWalker.m12 .angleBack {
+  background-position: -418px -2px;
+}
+.MapWalker.m13 .angleBack {
+  background-position: -522px -2px;
+}
+.MapWalker.m14 .angleBack {
+  background-position: -626px -2px;
+}
+.MapWalker.m15 .angleBack {
+  background-position: -730px -2px;
+}
+
+.map_roadview_intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px 0px;
+}
+
+.map_name,
+.roadview_name {
+  margin: 20px 0px;
+}
+#map {
+  grid-column: 2/3;
+}
+/*검색*/
+#menu_wrap {
+  grid-column: 1/2;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  padding: 5px;
+  overflow-y: auto;
+  background: rgba(255, 255, 255, 0.7);
+  z-index: 1;
+  font-size: 12px;
+  border-radius: 10px;
+}
+.bg_white {
+  background: #fff;
+}
+#menu_wrap hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 2px solid #5f5f5f;
+  margin: 3px 0;
+}
+#menu_wrap .option {
+  text-align: center;
+}
+#menu_wrap .option p {
+  margin: 10px 0;
+}
+#menu_wrap .option button {
+  margin-left: 5px;
+}
+#placesList li {
+  list-style: none;
+}
+#placesList .item {
+  position: relative;
+  border-bottom: 1px solid #888;
+  overflow: hidden;
+  cursor: pointer;
+  min-height: 65px;
+}
+#placesList .item span {
+  display: block;
+  margin-top: 4px;
+}
+#placesList .item h5,
+#placesList .item .info {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+#placesList .item .info {
+  padding: 10px 0 10px 55px;
+}
+#placesList .info .gray {
+  color: #8a8a8a;
+}
+#placesList .info .jibun {
+  padding-left: 26px;
+  background: url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_jibun.png)
+    no-repeat;
+}
+#placesList .info .tel {
+  color: #009900;
+}
+#placesList .item .markerbg {
+  float: left;
+  position: absolute;
+  width: 36px;
+  height: 37px;
+  margin: 10px 0 0 10px;
+  background: url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_number_blue.png)
+    no-repeat;
+}
+#placesList .item .marker_1 {
+  background-position: 0 -10px;
+}
+#placesList .item .marker_2 {
+  background-position: 0 -56px;
+}
+#placesList .item .marker_3 {
+  background-position: 0 -102px;
+}
+#placesList .item .marker_4 {
+  background-position: 0 -148px;
+}
+#placesList .item .marker_5 {
+  background-position: 0 -194px;
+}
+#placesList .item .marker_6 {
+  background-position: 0 -240px;
+}
+#placesList .item .marker_7 {
+  background-position: 0 -286px;
+}
+#placesList .item .marker_8 {
+  background-position: 0 -332px;
+}
+#placesList .item .marker_9 {
+  background-position: 0 -378px;
+}
+#placesList .item .marker_10 {
+  background-position: 0 -423px;
+}
+#placesList .item .marker_11 {
+  background-position: 0 -470px;
+}
+#placesList .item .marker_12 {
+  background-position: 0 -516px;
+}
+#placesList .item .marker_13 {
+  background-position: 0 -562px;
+}
+#placesList .item .marker_14 {
+  background-position: 0 -608px;
+}
+#placesList .item .marker_15 {
+  background-position: 0 -654px;
+}
+#pagination {
+  margin: 10px auto;
+  text-align: center;
+}
+#pagination a {
+  display: inline-block;
+  margin-right: 10px;
+}
+#pagination .on {
+  font-weight: bold;
+  cursor: default;
+  color: #777;
+}

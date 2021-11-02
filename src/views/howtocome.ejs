@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>How to come</title>
+    <script
+      src="https://kit.fontawesome.com/d5fbb687f5.js"
+      crossorigin="anonymous"
+    ></script>
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css" />
+  </head>
+  <body class="wrapper">
+    <h1>세종 오는 길</h1>
+    <hr class="upper-hr">
+    <section class="map">
+      <div id="map" class="howtocome_map" style="width:500px;height:300px;"></div>
+      
+    </section>
+    <section class="routes">
+      <section class="route-subway route">
+        <p class="m">지하철</p>
+        <ul>
+          <li>2호선</li>
+          <p>건대입구역 환승 후 7호선 세종대역 하차, 6번 출구</p>
+          <li>5호선</li>
+          <p>군자역 환승 후 7호선 세종대역 하차, 6번 출구</p>
+          <li>7호선</li>
+          <p>세종대역 하차, 6번 출구</p>
+        </ul>
+      </section>
+      <section class="route-bus route">
+        <p class="m">시내버스</p>
+        <ul>
+          <li>어린이대공원
+            <ul>
+            <li>파랑(간선) 721</li>
+            <li>초록(지선) 119, 3216, 4212</li>
+          </ul>
+          </li>
+          <li>화양리
+            <ul>
+            <li>파랑(간선) 240, 302</li>
+            <li>초록(지선) 2222, 3217, 3220</li>
+            <li>빨강(광역) 102</li>
+          </ul>
+          </li>
+          <li>후문(세종초)
+            <ul>
+            <li>파랑(간선) 240</li>
+            <li>초록(지선) 2012, 2013</li>
+          </ul>
+          </li>
+          
+      </section>
+    </section>
+    <!-----------nav------------>
+    <nav class="index-nav">
+      <div class="btn-box">
+        <div class="icon-btn">
+          <a href="/" class="block"><i class="fas fa-home"></i></a>
+        </div>
+        <span>홈</span>
+      </div>
+      <div class="btn-box">
+        <div class="icon-btn">
+          <a href="/navs/howtocome" class="block"
+            ><i class="fas fa-walking"></i
+          ></a>
+        </div>
+        <span>세종 오는 길</span>
+      </div>
+      <div class="btn-box">
+        <div class="icon-btn">
+          <a href="/navs/tips" class="block"><i class="fas fa-pen"></i></a>
+        </div>
+        <span>세종 꿀팁</span>
+      </div>
+      <div class="btn-box">
+        <div class="icon-btn">
+          <a href="/navs/comments" class="block"
+            ><i class="fas fa-comments"></i
+          ></a>
+        </div>
+        <span>방명록</span>
+      </div>
+    </nav>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=68262b74ac583d80a259e73587357e65"></script>
+    
+<script>
+  var container = document.getElementById('map');
+  var options = {
+    center: new kakao.maps.LatLng(37.55180968896947, 127.07364946575993),
+    level: 3
+  };
+
+  var map = new kakao.maps.Map(container, options);
+  
+</script>
+  </body>
+</html>

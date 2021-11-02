@@ -1,0 +1,36 @@
+* {
+  font-family: "Pretendard-Regular";
+}
+
+.btn-box {
+  display: flex;
+  flex-direction: column;
+}
+.index-nav {
+  border-top: 2px solid var(--gray);
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  max-width: 900px;
+  min-width: 900px;
+  background-color: var(--coolgray);
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0px 20px;
+  font-size: 20px;
+
+  z-index: 1;
+}
+
+.findmap-nav {
+  width: 100%;
+  max-width: 900px;
+  border-top: 2px solid var(--gray);
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  z-index: 1;
+}
